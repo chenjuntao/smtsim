@@ -1,0 +1,123 @@
+﻿<UserControl x:Class="SmtSim.uc3study3"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" d:DesignHeight="500" d:DesignWidth="700">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type Ellipse}">
+            <Setter Property="MinWidth" Value="80"></Setter>
+            <Setter Property="MinHeight" Value="60"></Setter>
+            <Setter Property="Grid.ColumnSpan" Value="2"/>
+            <Setter Property="Grid.RowSpan" Value="2"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Cursor" Value="Hand"/>
+                    <Setter Property="Stroke" Value="Red"/>
+                    <Setter Property="StrokeThickness" Value="2"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Grid.ColumnSpan" Value="2"/>
+        </Style>
+        <Style TargetType="{x:Type Line}">
+            <Setter Property="Stroke" Value="Blue"/>
+            <Setter Property="StrokeThickness" Value="2"/>
+            <Setter Property="Stretch" Value="Uniform"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Content="技能化素养训练系统" HorizontalAlignment="Center" FontSize="38" FontFamily="Microsoft YaHei"/>
+        <Border Grid.Row="1" CornerRadius="30" Background="#FFDFDFDD" Padding="10">
+            <TextBlock Foreground="DarkBlue" FontSize="20" Width="Auto" TextWrapping="Wrap">
+                该系统主要采用3D交互方式，通过完整的电子装配工艺设备及流程操作，配套相关技术资料及教学课件等，
+                可以让学员在操作实际设备前，以虚拟现实的仿真情形完成设备性能的基本了解、设备操作要领、安全操作规则及设备操作工艺流程，
+                操作基本技巧、设备的维护和保养等等有个比较全面的了解和熟悉，为其后续的实际工艺生产技术掌握打下良好的基础。
+            </TextBlock>
+        </Border>
+        <Grid Grid.Row="2" Margin="8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Ellipse Name="btnSmt" Margin="0,0,0,0" Grid.Column="3" Grid.Row="3" Grid.ColumnSpan="6" Grid.RowSpan="4" MouseDown="btnSmt_MouseDown">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="Icons/smtLine.jpg" Stretch="Fill"/>
+                </Ellipse.Fill>
+            </Ellipse>
+            <Ellipse Name="btnPCB" Grid.Row="4" MouseDown="btnPCB_MouseDown">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="Icons/pcb.jpg" Stretch="Fill" />
+                </Ellipse.Fill>
+            </Ellipse>
+            <Ellipse Name="btnScreenPrinter" Grid.Column="3" MouseDown="btnScreenPrinter_MouseDown">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="Icons/printer.jpg" Stretch="Fill"/>
+                </Ellipse.Fill>
+            </Ellipse>
+            <Ellipse Name="btnMounter" Grid.Column="7" MouseDown="btnMounter_MouseDown" Grid.ColumnSpan="3">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="Icons/mounter.jpg" Stretch="Fill"/>
+                </Ellipse.Fill>
+            </Ellipse>
+            <Ellipse Name="btnReflowSloder" Grid.Column="10" Grid.Row="4" MouseDown="btnReflowSloder_MouseDown" Grid.ColumnSpan="3">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="Icons/reflowsloder.jpg" Stretch="Fill" />
+                </Ellipse.Fill>
+            </Ellipse>
+            <Ellipse Name="btnWaveSloder" Grid.Column="7" Grid.Row="7" MouseDown="btnWaveSloder_MouseDown" Grid.ColumnSpan="3">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="Icons/wavesolder.jpg" Stretch="Fill" />
+                </Ellipse.Fill>
+            </Ellipse>
+            <Ellipse Name="btnChecker" Grid.Column="3" Grid.Row="7" MouseDown="btnChecker_MouseDown">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="Icons/aoi.jpg" Stretch="Fill" />
+                </Ellipse.Fill>
+            </Ellipse>
+            <Label Content="PCB检测" Grid.Row="6"/>
+            <Label Content="印刷机"  Grid.Column="3" Grid.Row="2"/>
+            <Label Content="贴片机"  Grid.Column="7" Grid.Row="2" Grid.ColumnSpan="3" />
+            <Label Content="回流焊"  Grid.Column="10" Grid.Row="6" Grid.ColumnSpan="3"/>
+            <Label Content="波峰焊"  Grid.Column="7" Grid.Row="9" Grid.ColumnSpan="3"/>
+            <Label Content="检测仪"  Grid.Column="3" Grid.Row="9" />
+            <Label Content="生产装配工艺" FontSize="26" Grid.Column="3" Grid.ColumnSpan="6" Grid.Row="5" VerticalAlignment="Bottom" Grid.RowSpan="2" />
+            <Line Grid.Column="5" Grid.Row="0" X1="1" VerticalAlignment="Bottom" Grid.ColumnSpan="2" />
+            <Line Grid.Column="9" Grid.Row="2" X2="1" Y2="2" Grid.ColumnSpan="3" Grid.RowSpan="2" />
+            <Line Grid.Column="9" Grid.Row="6" Y1="2" X2="1" Grid.ColumnSpan="3" Grid.RowSpan="2" />
+            <Line Grid.Column="5" Grid.Row="7" X1="1" VerticalAlignment="Bottom" Grid.ColumnSpan="2" />
+        </Grid>
+    </Grid>
+</UserControl>

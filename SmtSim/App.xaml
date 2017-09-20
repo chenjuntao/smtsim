@@ -1,0 +1,38 @@
+﻿<Application x:Class="SmtSim.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pcbModels\ALU_E.xaml"/>
+                <ResourceDictionary Source="pcbModels\C06x18.xaml"/>
+                <ResourceDictionary Source="pcbModels\do_214aa.xaml"/>
+                <ResourceDictionary Source="pcbModels\FKD.xaml"/>
+                <ResourceDictionary Source="PcbModels\FUSE_NANO2.xaml"/>
+                <ResourceDictionary Source="pcbModels\led_blue.xaml"/>
+                <ResourceDictionary Source="pcbModels\led_red.xaml"/>
+                <ResourceDictionary Source="pcbModels\led_yellow.xaml"/>
+                <ResourceDictionary Source="pcbModels\lqpf64.xaml"/>
+                <ResourceDictionary Source="pcbModels\msop_10.xaml"/>
+                <ResourceDictionary Source="PcbModels\POWERDI_123.xaml"/>
+                <ResourceDictionary Source="PcbModels\res01005.xaml"/>
+                <ResourceDictionary Source="PcbModels\sc70_3.xaml"/>
+                <ResourceDictionary Source="pcbModels\SL_B.xaml"/>
+                <ResourceDictionary Source="PcbModels\SMD_Capacitor.xaml"/>
+                <ResourceDictionary Source="pcbModels\SOP14.xaml"/>
+                <ResourceDictionary Source="PcbModels\SOT_23_3.xaml"/>
+                <ResourceDictionary Source="PcbModels\SOT_23_5.xaml"/>
+                <ResourceDictionary Source="PcbModels\SOT23_5_1.xaml"/>
+                <ResourceDictionary Source="PcbModels\sot313_2.xaml"/>
+                <ResourceDictionary Source="PcbModels\tssop14_2.xaml"/>
+                <ResourceDictionary Source="pcbModels\YC122.xaml"/>
+
+                <ResourceDictionary Source="mounterModels\mounter.xaml"/>
+                <ResourceDictionary Source="mounterModels\tv.xaml"/>
+                <ResourceDictionary Source="mounterModels\box1.xaml"/>
+                <ResourceDictionary Source="mounterModels\card1.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

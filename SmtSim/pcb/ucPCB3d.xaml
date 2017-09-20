@@ -1,0 +1,237 @@
+﻿<UserControl xmlns:my="clr-namespace:SmtSim" x:Class="SmtSim.ucPCB3d"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" d:DesignHeight="500" d:DesignWidth="600" x:Name="usrC3d">
+    <Grid Margin="5,10,5,5">
+        <my:TrackballDecorator x:Name="trackballDecorator1" Margin="0,0,200,0">
+            <Viewport3D x:Name="myViewport" RenderOptions.CachingHint="Cache" ClipToBounds="True">
+                <Viewport3D.Camera>
+                    <PerspectiveCamera x:Name="myCamera" LookDirection="0,-1,-2" UpDirection="0,0,-1" Position="0,50,100" FieldOfView="45"/>
+                </Viewport3D.Camera>
+                <ModelVisual3D x:Name="viewportLights">
+                    <ModelVisual3D.Content>
+                        <Model3DGroup>
+                            <AmbientLight x:Name="ambientLight" Color="#666666"/>
+                            <DirectionalLight x:Name="directionalLight" Color="#444444" Direction="0 -1 -1"/>
+                            <SpotLight x:Name="spotLight" Color="#666666" Direction="0 0 -1" InnerConeAngle="30" OuterConeAngle="60" Position="0 1 30"/>
+                        </Model3DGroup>
+                    </ModelVisual3D.Content>
+                </ModelVisual3D>
+                <ContainerUIElement3D x:Name="PCBContainer"/>
+            </Viewport3D>
+        </my:TrackballDecorator>
+        <StackPanel HorizontalAlignment="Left" Width="155">
+            <GroupBox Header="移动" Height="115">
+                <Grid>
+                    <Button Content="上移" FontSize="16" Height="30" HorizontalAlignment="Center" Margin="0,2,0,0" VerticalAlignment="Top" Click="moveUp_Click" />
+                    <Button Content="左移" FontSize="16" Height="30" HorizontalAlignment="Left" Margin="2,0,0,0" VerticalAlignment="Center" Click="moveLeft_Click"/>
+                    <Button Content="右移" FontSize="16" Height="30" HorizontalAlignment="Right" Margin="0,0,2,0" VerticalAlignment="Center" Click="moveRight_Click"/>
+                    <Button Content="下移" FontSize="16" Height="30" HorizontalAlignment="Center" Margin="0,0,0,2" VerticalAlignment="Bottom" Click="moveDown_Click"/>
+                </Grid>
+            </GroupBox>
+            <GroupBox Header="缩放" Height="60">
+                <Grid>
+                    <Button Content="放大" FontSize="16" Height="30" HorizontalAlignment="Left" Margin="8,0,0,0" VerticalAlignment="Center" Click="scaleInc_Click"/>
+                    <Button Content="缩小" FontSize="16" Height="30" HorizontalAlignment="Right" Margin="0,0,8,0" VerticalAlignment="Center" Click="scaleDesc_Click"/>
+                </Grid>
+            </GroupBox>
+            <GroupBox Header="恢复" Height="60">
+                <Grid>
+                    <Button Content="恢复默认视角" FontSize="15" Height="30" VerticalAlignment="Center" Click="defaultView_Click"/>
+                </Grid>
+            </GroupBox>
+            <GroupBox Header="数据" Height="96">
+                <Grid>
+                    <Button Content="打开EDA文件" FontSize="16" Height="30" HorizontalAlignment="Center" Margin="0,5,0,0" VerticalAlignment="Top" Click="openEDA_Click"/>
+                    <Button Content="清空PCB元件" FontSize="16" Height="30" HorizontalAlignment="Center" Margin="0,0,0,5" VerticalAlignment="Bottom" Click="clearData_Click"/>
+                </Grid>
+            </GroupBox>
+            <GroupBox Header="模拟" Height="60" Visibility="Hidden">
+                <Grid>
+                    <Button Content="模拟贴片过程" FontSize="16" Height="30" VerticalAlignment="Center" Click="mounter_Click"/>
+                </Grid>
+            </GroupBox>
+        </StackPanel>        
+        <StackPanel HorizontalAlignment="Right" Width="200">
+            <Expander Header="PCB设计物理参数检测">
+                <StackPanel>
+                    <GroupBox Header="PCB密度设计">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition  Width="auto"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Label Content="元器件密度设计"/>
+                            <ComboBox Grid.Column="1">
+                                <ComboBoxItem Content="一级" />
+                                <ComboBoxItem Content="二级" />
+                                <ComboBoxItem Content="三级" />
+                            </ComboBox>
+                            <Label Content="焊盘之间最小间距" Grid.Row="1"/>
+                            <TextBox Text="0.254" Grid.Row="1" Grid.Column="1" />
+                            <Label Content="焊盘与过孔最小间距" Grid.Row="2"/>
+                            <TextBox Text="1.337" Grid.Row="2" Grid.Column="1" />
+                            <Label Content="焊盘与通孔最小间距" Grid.Row="3"/>
+                            <TextBox Text="3.50" Grid.Row="3" Grid.Column="1" />
+                            <Label Content="通孔之间最小间距" Grid.Row="4"/>
+                            <TextBox Text="2.54" Grid.Row="4" Grid.Column="1" />
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Header="计算错误率">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition  Width="auto"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Label Content="焊盘数量"/>
+                            <TextBox Text="" Grid.Column="1" />
+                            <Label Content="错误数量" Grid.Row="1"/>
+                            <TextBox Text="" Grid.Row="1" Grid.Column="1" />
+                            <Label Content="错误率ppm" Grid.Row="2"/>
+                            <TextBox Text="" Grid.Row="2" Grid.Column="1" />
+                        </Grid>
+                    </GroupBox>
+                    <Button Content="开始检测"/>
+                </StackPanel>
+            </Expander>
+            <Expander Header="PCB设计可装配性检测">
+                <StackPanel>
+                    <GroupBox Header="检查项目（单位：毫米）">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition  Width="auto"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Label Content="卧插元件最小间距"/>
+                            <TextBox Text="10" Grid.Column="1" />
+                            <Label Content="立插元件最小间距" Grid.Row="1"/>
+                            <TextBox Text="10" Grid.Row="1" Grid.Column="1" />
+                            <Label Content="PCB最大尺寸X" Grid.Row="2"/>
+                            <TextBox Text="10" Grid.Row="2" Grid.Column="1" />
+                            <Label Content="PCB最大尺寸Y" Grid.Row="3"/>
+                            <TextBox Text="10" Grid.Row="3" Grid.Column="1" />
+                            <Label Content="PCB最小尺寸X" Grid.Row="4"/>
+                            <TextBox Text="10" Grid.Row="4" Grid.Column="1" />
+                            <Label Content="PCB最小尺寸Y" Grid.Row="5"/>
+                            <TextBox Text="10" Grid.Row="5" Grid.Column="1" />
+                            <Label Content="标号中心距边缘" Grid.Row="6"/>
+                            <TextBox Text="10" Grid.Row="6" Grid.Column="1" />
+                            <Label Content="夹持边宽度" Grid.Row="7"/>
+                            <TextBox Text="10" Grid.Row="7" Grid.Column="1" />
+                            <Label Content="定位孔距边缘" Grid.Row="8"/>
+                            <TextBox Text="10" Grid.Row="8" Grid.Column="1" />
+                            <Label Content="卧插元件跨距" Grid.Row="9"/>
+                            <TextBox Text="10" Grid.Row="9" Grid.Column="1" />
+                            <Label Content="立插元件跨距" Grid.Row="10"/>
+                            <TextBox Text="10" Grid.Row="10" Grid.Column="1" />
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Header="计算错误率">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition  Width="auto"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Label Content="焊盘数量"/>
+                            <TextBox Text="" Grid.Column="1" />
+                            <Label Content="错误数量" Grid.Row="1"/>
+                            <TextBox Text="" Grid.Row="1" Grid.Column="1" />
+                            <Label Content="错误率ppm" Grid.Row="2"/>
+                            <TextBox Text="" Grid.Row="2" Grid.Column="1" />
+                            <Label Content="累计错误率" Grid.Row="3"/>
+                            <TextBox Text="" Grid.Row="3" Grid.Column="1" />
+                        </Grid>
+                    </GroupBox>
+                    <Button Content="开始检测"/>
+                </StackPanel>
+            </Expander>
+            <Expander Header="PCB设计焊接质量检测">
+                <StackPanel>
+                    <GroupBox Header="SMT焊盘宽度设计检测">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition  Width="auto"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Label Content="性能等级"/>
+                            <ComboBox Grid.Column="1">
+                                <ComboBoxItem Content="Class1" />
+                                <ComboBoxItem Content="Class2" />
+                                <ComboBoxItem Content="Class3" />
+                            </ComboBox>
+                            <Label Content="CHIP/SOJ/PLCC/SOP/QFP" Grid.Row="1"/>
+                            <TextBox Text="50%W/P" Grid.Row="1" Grid.Column="1" />
+                            <Label Content="MELF" Grid.Row="2" />
+                            <TextBox Text="30%W/P" Grid.Row="2" Grid.Column="1" />
+                            <Label Content="LCC/LCCC" Grid.Row="3"/>
+                            <TextBox Text="75%W/P" Grid.Row="3" Grid.Column="1" />
+                            <Label Content="BGA/CSP" Grid.Row="4"/>
+                            <TextBox Text="50%W/P" Grid.Row="4" Grid.Column="1" />
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Header="计算错误率">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition  Width="auto"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Label Content="焊盘数量"/>
+                            <TextBox Text="" Grid.Column="1" />
+                            <Label Content="错误数量" Grid.Row="1"/>
+                            <TextBox Text="" Grid.Row="1" Grid.Column="1" />
+                            <Label Content="错误率ppm" Grid.Row="2"/>
+                            <TextBox Text="" Grid.Row="2" Grid.Column="1" />
+                        </Grid>
+                    </GroupBox>
+                    <Button Content="开始检测"/>
+                </StackPanel>
+            </Expander>
+        </StackPanel>
+        <TextBlock Margin="12,0,12,12" Text="提示：鼠标右键键拖动旋转视图，鼠标滚轮缩放视图，鼠标左键点击模型查看详细信息" VerticalAlignment="Bottom" FontSize="22"/>
+    </Grid>
+</UserControl>

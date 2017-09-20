@@ -1,0 +1,12 @@
+﻿<UserControl x:Class="SmtSim.ucDocs"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="500">
+    <Grid>
+        <Label Name="labelTitle" Content="文档列表" FontSize="28" FontWeight="Bold" HorizontalAlignment="Center" />        
+        <WindowsFormsHost Name="winFormHost" Margin="0,40,150,0" />
+        <StackPanel Name="docList" Width="150" HorizontalAlignment="Right" Margin="0,40,0,0"/>
+    </Grid>
+</UserControl>

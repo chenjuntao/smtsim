@@ -1,0 +1,458 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BBAF6DA2-84AC-40D1-ACF2-840F9F2A9C66}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SmtSim</RootNamespace>
+    <AssemblyName>SmtSim</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>SmtSim.App</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Common\ParseGif.cs" />
+    <Compile Include="Common\WpfGifImage.cs" />
+    <Compile Include="3d\ModelBase.cs" />
+    <Compile Include="3d\TrackballDecorator.cs" />
+    <Compile Include="3d\Viewport3DDecorator.cs" />
+    <Compile Include="pcb\ucPCB3d.xaml.cs">
+      <DependentUpon>ucPCB3d.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="3d\Trackball.cs" />
+    <Compile Include="pcb\ucPCBComponent.xaml.cs">
+      <DependentUpon>ucPCBComponent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="uc2Study.xaml.cs">
+      <DependentUpon>uc2Study.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="uc3exam1.xaml.cs">
+      <DependentUpon>uc3exam1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="uc3study1.xaml.cs">
+      <DependentUpon>uc3study1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="uc3study2.xaml.cs">
+      <DependentUpon>uc3study2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="uc3mis1.xaml.cs">
+      <DependentUpon>uc3mis1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ucChecker.xaml.cs">
+      <DependentUpon>ucChecker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\ucDocs.xaml.cs">
+      <DependentUpon>ucDocs.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="uc2Exam.xaml.cs">
+      <DependentUpon>uc2Exam.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pcb\ucImportEDA.xaml.cs">
+      <DependentUpon>ucImportEDA.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="uc1Login.xaml.cs">
+      <DependentUpon>uc1Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="uc2Mis.xaml.cs">
+      <DependentUpon>uc2Mis.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ucMounter\ucMounter.xaml.cs">
+      <DependentUpon>ucMounter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ucMounter\ucMounter3d.xaml.cs">
+      <DependentUpon>ucMounter3d.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pcb\ucPCB.xaml.cs">
+      <DependentUpon>ucPCB.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="reflowSloder\ucReflowSloder.xaml.cs">
+      <DependentUpon>ucReflowSloder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ucPrinter.xaml.cs">
+      <DependentUpon>ucPrinter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="smt\ucSmt.xaml.cs">
+      <DependentUpon>ucSmt.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="smt\ucSmtLineFlash.xaml.cs">
+      <DependentUpon>ucSmtLineFlash.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="smt\ucSmtDesign.xaml.cs">
+      <DependentUpon>ucSmtDesign.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="uc3study3.xaml.cs">
+      <DependentUpon>uc3study3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\UCVideoPlayer.xaml.cs">
+      <DependentUpon>UCVideoPlayer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\ucVideos.xaml.cs">
+      <DependentUpon>ucVideos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="reflowSloder\ucReflowTempDesign.xaml.cs">
+      <DependentUpon>ucReflowTempDesign.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ucWaveSloder.xaml.cs">
+      <DependentUpon>ucWaveSloder.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="mounterModels\box1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="mounterModels\card1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="mounterModels\mounter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="mounterModels\tv.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="pcbModels\ALU_E.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="pcbModels\C06x18.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="pcbModels\do_214aa.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="pcbModels\FKD.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="pcbModels\FUSE_NANO2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="pcbModels\led_blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="pcbModels\led_red.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="pcbModels\led_yellow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="pcbModels\lqpf64.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="pcbModels\msop_10.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="pcbModels\POWERDI_123.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="pcbModels\res01005.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="pcbModels\sc70_3.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="pcbModels\SL_B.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="pcbModels\SMD_Capacitor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="pcbModels\SOP14.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="pcbModels\SOT_23_3.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="pcbModels\SOT_23_5.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="pcbModels\SOT23_5_1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="pcbModels\sot313_2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="pcbModels\tssop14_2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="pcbModels\YC122.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="pcb\ucPCB3d.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pcb\ucPCBComponent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="uc2Study.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="uc3exam1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="uc3study1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="uc3study2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="uc3mis1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ucChecker.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Common\ucDocs.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="uc2Exam.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pcb\ucImportEDA.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="uc1Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="uc2Mis.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ucMounter\ucMounter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ucMounter\ucMounter3d.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pcb\ucPCB.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="reflowSloder\ucReflowSloder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ucPrinter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="smt\ucSmt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="smt\ucSmtLineFlash.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="smt\ucSmtDesign.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="uc3study3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\UCVideoPlayer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Common\ucVideos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="reflowSloder\ucReflowTempDesign.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ucWaveSloder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\axi.JPG" />
+    <Resource Include="Icons\spi.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\Mentor_logo.png" />
+    <Resource Include="Icons\OrCAD_logo.jpg" />
+    <Resource Include="Icons\PowerPCB_logo.JPG" />
+    <Resource Include="Icons\smtDesign2.PNG" />
+    <Resource Include="Icons\smtDesign1.PNG" />
+    <Resource Include="Icons\smtDesign3.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\protel_logo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\arrowRight.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\reflowTemp.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\reflowTempChoosePCB.PNG" />
+    <Resource Include="Icons\reflowTempChooseAlloy.PNG" />
+    <Resource Include="Icons\reflowTempDesign.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\ui1Login.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\ui3study1.jpg" />
+    <Resource Include="Icons\ui3study2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\pcb.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\printer.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\reflowsloder.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\wavesolder.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\aoi.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\ui3mis1.jpg" />
+    <Resource Include="Icons\ui3exam1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\smtLine.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\mounter.JPG" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

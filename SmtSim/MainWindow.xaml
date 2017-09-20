@@ -1,0 +1,61 @@
+﻿<Window x:Class="SmtSim.MainWindow" WindowState="Maximized"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="电子装配技术职业资格认证培训考核服务平台v3.0" Height="600" Width="910">
+    <Window.Resources>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Height" Value="50" />
+            <Setter Property="FontSize" Value="26"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Padding" Value="10,0"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="BorderBrush" Value="{x:Null}"/>
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="White" Offset="0" />
+                        <GradientStop Color="#FF83C1E7" Offset="1" />
+                        <GradientStop Color="#FFC6BCD4" Offset="0.3" />
+                        <GradientStop Color="#FF96B1c4" Offset="0.8" />
+                        <GradientStop Color="#FFB9D3CD" Offset="0.5" />
+                    </LinearGradientBrush>
+                </Setter.Value>                
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <Grid Name="gridContent">
+            <Button Content="返回" HorizontalAlignment="Right" Name="btnReturn" Click="btnReturn_Click" VerticalAlignment="Bottom" Margin="20,10" />
+        </Grid>
+        <Grid Name="gridMainMenu" Visibility="Collapsed"  Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Button Content="电子装配技术实训仿真系统" HorizontalAlignment="Right" Name="btnStudy" Click="btnStudy_Click"/>
+            <Button Content="MIS管理系统" HorizontalAlignment="Center" Name="btnMIS" Grid.Column="1" Click="btnMIS_Click"/>
+            <Button Content="职业资格认证考核系统" HorizontalAlignment="Left" Name="btnExam" Grid.Column="2" Click="btnExam_Click" />
+        </Grid>
+        <Grid Name="gridLogin" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="180"/>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="180"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Label Content="用户名：" FontSize="26" FontWeight="Bold" HorizontalAlignment="Right" VerticalAlignment="Center" />
+            <TextBox Name="txtUsrName" Grid.Column="1" FontSize="26" VerticalAlignment="Center" Text="admin" />
+            <Label Content="密码：" Grid.Column="2" FontSize="26" FontWeight="Bold" HorizontalAlignment="Right" VerticalAlignment="Center" />
+            <PasswordBox Name="txtPassword" Grid.Column="3" FontSize="26" VerticalAlignment="Center" ToolTip="提示：密码为“123”" />
+            <Button Content="登录" HorizontalAlignment="Left" Name="btnLogin" Grid.Column="5" Click="btnLogin_Click"/>            
+        </Grid>
+    </Grid>
+</Window>

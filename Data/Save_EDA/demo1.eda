@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<pcb length="30" width="20" depth="1">
+  <component type="FKD" x="-10" y="0" z="10" angle="0"/>
+  <component type="SOP14" x="0" y="0" z="15" angle="0"/>
+  <component type="YC122" x="-10" y="0" z="18" angle="0"/>
+  <component type="YC122" x="-12" y="0" z="18" angle="0"/>
+  <component type="YC122" x="-14" y="0" z="18" angle="0"/>
+  <component type="YC122" x="-16" y="0" z="18" angle="0"/>
+  <component type="YC122" x="-18" y="0" z="18" angle="0"/>
+  <component type="SL_B" x="-20" y="0" z="-15" angle="0"/>
+  <component type="sot313_2" x="10" y="0" z="10" angle="0"/>
+  <component type="led_red" x="25" y="2" z="-10" angle="0"/>
+  <component type="led_blue" x="25" y="2" z="0" angle="0"/>
+  <component type="led_yellow" x="25" y="2" z="10" angle="0"/>
+  <component type="lqpf64" x="15" y="0" z="-5" angle="0"/>
+  <component type="C06x18" x="20" y="2" z="-17" angle="0"/>
+  <component type="msop_10" x="18" y="0" z="18" angle="0"/>
+  <component type="alu_e" x="-20" y="0" z="10" angle="0"/>
+</pcb>

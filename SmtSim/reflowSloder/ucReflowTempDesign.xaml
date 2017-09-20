@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="SmtSim.ucReflowTempDesign"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="600">
+    <Grid>
+        <Label Name="labelTitle" Content="回流焊温度曲线设计" FontSize="28" FontWeight="Bold" HorizontalAlignment="Center" />
+        <TabControl Margin="0,40,0,0">
+            <TabItem Header="回流温度曲线设计说明">
+                <Image Source="/SmtSim;component/Icons/reflowTemp.PNG" Stretch="Fill" />
+            </TabItem>
+            <TabItem Header="一、选择焊膏合金">
+                <Image Source="/SmtSim;component/Icons/reflowTempChooseAlloy.PNG" Stretch="Fill" />
+            </TabItem>
+            <TabItem Header="二、PCB板类型选择">
+                <Image Source="/SmtSim;component/Icons/reflowTempChoosePCB.PNG" Stretch="Fill" />
+            </TabItem>
+            <TabItem Header="三、温度曲线设计">
+                <Image Source="/SmtSim;component/Icons/reflowTempDesign.PNG" Stretch="Fill" />
+            </TabItem>
+        </TabControl>
+    </Grid>
+</UserControl>
